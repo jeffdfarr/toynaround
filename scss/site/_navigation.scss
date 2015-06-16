@@ -1,0 +1,297 @@
+
+
+// Add some whitespace between top bar and content
+
+
+.top-bar .name {
+	h1 a { font-weight: 500; }
+}
+
+// A more subtle background color for the active menu item
+.top-bar-section li.active:not(.has-form) a:not(.button)  {
+	background: $black;
+}
+.top-bar-section li.active:not(.has-form) a:hover:not(.button) {
+	
+}
+.top-bar, .contain-to-grid {
+	background-color:$white;
+}
+
+.top-bar-menu {
+		list-style:none;
+		li {
+			display:inline-block;
+			a {
+				color:$black;
+				padding:0.75rem 1rem;
+				text-transform:uppercase;
+				font-weight:700;
+			}
+		}
+}
+.top-bar-container {
+	.top-bar {
+			
+		.title-area {
+			display:inline-block;
+			list-style:none;
+
+		}
+	}
+}
+.tab-bar {
+	background-color:transparent;
+}
+
+// Switch between the mobile menu (tab-bar) and desktop menu (topbar) based on a custom $topbar-breakpoint value.
+// The $topbar-breakpoint can be edited in _custom-settings.scss. 
+
+@media only screen and (min-width: ($topbar-breakpoint + em-calc(1))) {
+  .tab-bar { display: none; }
+}
+
+// Hide the topbar when the screen size is smaller than the topbar breakpoint
+@media only screen and (max-width: $topbar-breakpoint) {
+  .top-bar { display: none; }
+}
+
+
+
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+
+
+
+header {
+	z-index: $nav-zindex;
+}
+
+.cd-nav-trigger {
+	position: fixed;
+	display: inline-block;
+}
+
+
+
+.cd-nav-trigger {
+	top: 18px;
+	right: 5%;
+	height: 44px;
+	width: 44px;
+	z-index: $trigger-zindex;
+	/* image replacement */
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+
+	.cd-icon {
+		/* icon created in CSS */
+		position: absolute;
+		display: inline-block;
+		width: 18px;
+		height: 3px;
+		background-color: $black;
+		z-index: 10;
+
+
+		&::before, &:after {
+			/* upper and lower lines of the menu icon */
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 100%;
+			height: 100%; 
+			background-color: $black;
+
+			/* Force Hardware Acceleration in WebKit */
+			-webkit-transform: transform(translateZ(0));
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+
+			/* apply transition to transform property */
+			-webkit-transition: -webkit-transform .3s;
+			-moz-transition: -moz-transform .3s;
+			transition: transform .3s;
+		}
+
+		&::before {
+			-webkit-transform: transform(translateY(-6px) rotate(0deg));
+		}
+
+		&::after {
+			-webkit-transform: transform(translateY(6px) rotate(0deg));
+		}
+	}
+
+	&::before, &::after {
+		/* 2 rounded colored backgrounds for the menu icon */
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: 50%;
+		height: 100%;
+		width: 100%;
+		background-color:$black;
+		/* Force Hardware Acceleration in WebKit */
+		-webkit-transform: transform(translateZ(0));
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-webkit-transition: transition-property(transform);
+	}
+
+	&::before {
+		background-color: $red;
+		-webkit-transform: transform(scale(1));
+		-webkit-transition: transition-duration(.3s);
+		-webkit-transition: transition-delay(.4s);
+	}
+
+	&::after {
+		background-color: $grey;
+		-webkit-transform: transform(scale(0));
+		-webkit-transition: transition-duration(0s);
+		-webkit-transition: transition-delay(0s);
+	}
+
+	&.close-nav::before {
+		/* user clicks on the .cd-nav-trigger element - 1st rounded background disappears */
+		-webkit-transform: transform(scale(0));
+	}
+
+	&.close-nav::after {
+		/* user clicks on the .cd-nav-trigger element - 2nd rounded background appears */
+		-webkit-transform: transform(scale(1));
+		-webkit-transition: transition-duration(.3s);
+		-webkit-transition: transition-delay(.4s);
+	}
+
+	&.close-nav .cd-icon {
+		/* user clicks on the .cd-nav-trigger element - transform the icon */
+		background-color: rgba($black, 0);
+
+		&::before, &::after {
+			background-color: rgba($black, 1);
+		}
+		
+		&::before {
+			-webkit-transform: transform(translateY(0) rotate(45deg));
+		}
+
+		&::after {
+			-webkit-transform: transform(translateY(0) rotate(-45deg));
+		}
+	}
+}
+
+.cd-primary-nav {
+	/* by default it's hidden */
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	padding: 80px 5%;
+	z-index: $nav-zindex;
+	background-color: $red;
+	overflow: auto;
+	list-style:none;
+	margin:0px;
+	/* this fixes the buggy scrolling on webkit browsers - mobile devices only - when overflow property is applied */
+	-webkit-overflow-scrolling: touch;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: transition(visibility 0s, opacity .3s);
+
+	li {
+		margin: 1.6em 0;
+		text-align: center;
+		text-transform: capitalize;
+	}
+
+	a {
+		color:$white;
+		opacity:0.8;
+		
+		.no-touch &:hover {
+			color: $white;
+			opacity:1;
+		}
+	}
+
+	&.fade-in {
+		/* navigation visible at the end of the circle animation */
+		visibility: visible;
+		opacity: 1;
+	}
+
+	@media #{$medium-up} {
+		li {
+			margin: 2em 0;
+		}
+
+		
+	}
+
+	@media #{$large-up} {
+		li {
+			margin: 2.6em 0;
+		}
+
+		
+	}
+}
+
+.cd-overlay-nav, .cd-overlay-content {
+	/* containers of the 2 main rounded backgrounds - these containers are used to position the rounded bgs behind the menu icon */
+	position: fixed;
+	top: 18px;
+	right: 5%;
+	height: 4px;
+	width: 4px;
+	-webkit-transform: transform(translateX(-20px) translateY(20px));
+
+	span {
+		display: inline-block;
+		position: absolute;
+		border-radius: 50%;
+		/* Force Hardware Acceleration in WebKit */
+		-webkit-transform: transform(translateZ(0));
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		will-change: transform;
+		-webkit-transform: transform-origin(50% 50%);
+		-webkit-transform: transform(scale(0));
+	}
+
+	&.is-hidden {
+		/* background fades out at the end of the animation */
+		opacity: 0;
+		visibility: hidden;
+		-webkit-transition: opacity .3s 0s, visibility 0s .3s;
+		-moz-transition: opacity .3s 0s, visibility 0s .3s;
+		transition: opacity .3s 0s, visibility 0s .3s;
+	}
+}
+
+.cd-overlay-nav {
+	/* main rounded colored bg 1 */
+	z-index: $layer-nav-zindex;
+
+	span {
+		background-color: $red;
+	}
+}
+
+.cd-overlay-content {
+	/* main rounded colored bg 2 */
+	z-index: $layer-content-zindex;
+
+	span {
+		background-color: $grey;
+	}
+}
+

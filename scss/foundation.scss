@@ -45,7 +45,7 @@
 @import "../bower_components/foundation/scss/foundation/components/tabs";
 @import "../bower_components/foundation/scss/foundation/components/thumbs";
 @import "../bower_components/foundation/scss/foundation/components/tooltips";
-@import "../bower_components/foundation/scss/foundation/components/top-bar";
+// @import "../bower_components/foundation/scss/foundation/components/top-bar";
 @import "../bower_components/foundation/scss/foundation/components/type";
 @import "../bower_components/foundation/scss/foundation/components/offcanvas";
 @import "../bower_components/foundation/scss/foundation/components/visibility";
@@ -63,8 +63,10 @@
   Add your scss files below to structure your project styles
 */ 
 
-@import "site/global"; 
+@import "site/typography";
+@import "site/global";
+@import "site/content";
 @import "site/wp-admin";
-@import "site/topbar";
-@import "site/hero";
+@import "site/header";
+@import "site/navigation";
 @import "site/footer";

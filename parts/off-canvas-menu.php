@@ -8,6 +8,6 @@
  */
 
 ?>
-<aside class="left-off-canvas-menu" aria-hidden="true">
-    <?php foundationpress_mobile_off_canvas(); ?>
-</aside>
+<div class="cd-overlay-nav"><span></span></div>
+<div class="cd-overlay-content"><span></span></div>
+<?php foundationpress_mobile_off_canvas(); ?>

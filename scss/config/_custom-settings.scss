@@ -14,6 +14,7 @@ $font-weight-bold: bold !default;
 
 // Foundation color naming conventions
 $white       : #FFFFFF;
+$red         : red;
 $ghost       : #FAFAFA;
 $snow        : #F9F9F9;
 $vapor       : #F6F6F6;
@@ -27,11 +28,11 @@ $aluminum    : #999999;
 $jumbo       : #888888;
 $monsoon     : #777777;
 $steel       : #666666;
-$charcoal    : #555555;
+$grey	     : #555555;
 $tuatara     : #444444;
 $oil         : #333333;
 $jet         : #222222;
-$black       : #000000;
+$black       : #333333;
 
 // We use these as default colors throughout
 $primary-color: #008CBA;
@@ -57,3 +58,11 @@ $medium-breakpoint: em-calc(1024);
 $topbar-breakpoint: em-calc(820);
 $large-breakpoint:  em-calc(1440);
 $xlarge-breakpoint: em-calc(1920);
+
+
+// z-index 
+$content-zindex: 1;
+$layer-nav-zindex: 2;
+$nav-zindex: 3;
+$layer-content-zindex: 4;
+$trigger-zindex: 5;
