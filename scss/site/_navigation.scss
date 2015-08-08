@@ -1,4 +1,13 @@
-
+.navigation {
+	float:right;
+	padding:1rem 1rem 0rem 0rem;
+}
+.top-bar {
+	position:fixed;
+	background-color:transparent;
+	z-index:10000;
+	width:100%;
+}
 
 // Add some whitespace between top bar and content
 
@@ -14,22 +23,35 @@
 .top-bar-section li.active:not(.has-form) a:hover:not(.button) {
 	
 }
-.top-bar, .contain-to-grid {
-	background-color:$white;
-}
 
 .top-bar-menu {
 		list-style:none;
+		color:$white;
+		
+		.contact {
+			background-color:$red;
+			border-radius:100rem;
+			padding:0.5rem 0.75rem;		
+		}
+
 		li {
 			display:inline-block;
+			
+			.current {
+				opacity:1;
+			}
+			
 			a {
-				color:$black;
+				color:$white;
 				padding:0.75rem 1rem;
 				text-transform:uppercase;
 				font-weight:700;
+				font-size:0.8rem;
+				opacity:0.8;
 			}
 		}
 }
+
 .top-bar-container {
 	.top-bar {
 			
@@ -294,4 +316,5 @@ header {
 		background-color: $grey;
 	}
 }
+
 

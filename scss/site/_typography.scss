@@ -1,5 +1,56 @@
 @import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
 
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?-btzena');
+	src:url('../fonts/icomoon.eot?#iefix-btzena') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?-btzena') format('truetype'),
+		url('../fonts/icomoon.woff?-btzena') format('woff'),
+		url('../fonts/icomoon.svg?-btzena#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-relationships:before {
+	content: "\e600";
+	font-size:5rem;
+	color:$red;
+}
+.icon-representations:before {
+	content: "\e601";
+	font-size:5rem;
+	color:$red;
+}
+.icon-analytics:before {
+	content: "\e602";
+	font-size:5rem;
+	color:$red;
+}
+
+
+
 .about-us {
 	font-family: 'Lora', serif;
+}
+
+h2 {
+	text-align:center; 
+	color:$white;
+	font-weight:900;
+	text-transform:uppercase;
 }

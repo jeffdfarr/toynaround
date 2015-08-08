@@ -63,10 +63,14 @@
   Add your scss files below to structure your project styles
 */ 
 
+@import "site/variables";
 @import "site/typography";
+@import "site/team";
 @import "site/global";
 @import "site/content";
 @import "site/wp-admin";
 @import "site/header";
 @import "site/navigation";
+@import "site/slick-theme";
+@import "site/slick";
 @import "site/footer";

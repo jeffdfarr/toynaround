@@ -1,0 +1,105 @@
+.team__item {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    margin-right: 8%;
+}
+.team__card {
+    box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, .1);
+    left: -115px;
+    margin: auto;
+    width: 350px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: -25px;
+    z-index: 99;
+    visibility: hidden;
+    border-radius: 12px;
+    background-clip: padding-box;
+}
+.team__card--top {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+.team__card--top:after {
+    content:'';
+    position: absolute;
+    left: 115px;
+    top: 25px;
+    border-radius: 100%;
+    width: 120px;
+    height: 120px;
+    box-shadow: 0 0 0 500px #fff
+}
+.team__card-content {
+    background: #fff;
+    padding: 30px;
+}
+.team__img {
+    -webkit-animation: none!important;
+    animation: none!important;
+    max-width: 120px;
+}
+.img--circle {
+    border-radius: 50%;
+    background-clip: padding-box;
+}
+.fadeIn {
+    animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
+    animation-duration: .75s;
+    -webkit-animation-duration: .75s;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+    visibility: visible !important
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+.fadeInScale {
+    animation-name: fadeInScale;
+    -webkit-animation-name: fadeInScale;
+    animation-duration: .25s;
+    -webkit-animation-duration: .25s;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+    visibility: visible !important;
+}
+@keyframes fadeInScale {
+    0% {
+        -webkit-transform: scale(.75);
+        transform: scale(.75);
+        opacity: 0
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1
+    }
+}
+@-webkit-keyframes fadeInScale {
+    0% {
+        -webkit-transform: scale(.75);
+        opacity: 0
+    }
+    100% {
+        -webkit-transform: scale(1);
+        opacity: 1
+    }
+}
