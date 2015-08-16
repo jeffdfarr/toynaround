@@ -4,3 +4,18 @@ jQuery(document).ready(function () {
     });
 });
 
+(function($) {          
+    $(document).ready(function(){                    
+        $(window).scroll(function(){                          
+            if ($(this).scrollTop() > 200) {
+                $('.top-bar').fadeIn(500);
+            } else {
+                $('.top-bar').fadeOut(500);
+            }
+        });
+    });
+})(jQuery);
+
+
+
+

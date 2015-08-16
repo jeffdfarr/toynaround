@@ -17,17 +17,18 @@
   -moz-transform: translate(0,0);
   -o-transform: translate(0,0);
   transform: translate(0,0);
-  -webkit-transition: -webkit-transform .4s, height .3s, background .4s;
-  -moz-transition: -moz-transform .4s, height .3s, background .4s;
-  transition: transform .4s, height .3s, background .4s;
-  -webkit-animation: firstFadeInAndDrop .5s;
-  -moz-animation: firstFadeInAndDrop .5s;
-  animation: firstFadeInAndDrop .5s;
+  -webkit-transition: -webkit-transform .8s, height .3s, background .8s;
+  -moz-transition: -moz-transform .8s, height .3s, background .8s;
+  transition: transform .8s, height .3s, background .8s;
+  -webkit-animation: firstFadeInAndDrop 1s;
+  -moz-animation: firstFadeInAndDrop 1s;
+  animation: firstFadeInAndDrop 1s;
+  clear:both;
 }
 
  /* on intial load fade in the menu */
  @-webkit-keyframes firstFadeInAndDrop {
-   0%   {-webkit-transform: translate(0,-25px);}
+   0%   {-webkit-transform: translate(0,-50px);}
    100% {-webkit-transform: translate(0,0);}
  }
 

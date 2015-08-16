@@ -16,7 +16,7 @@ get_header(); ?>
 				<h2><?php the_field('tagline'); ?></h2>
 			<?php endif; ?>
 			</div>
-			
+
 			<?php
 			echo '<div class="slick-slider clearfix">';
 			if ( have_rows( 'slick_slides' ) ) :
@@ -49,23 +49,49 @@ get_header(); ?>
 
 
 
-			<section id="section_three" class="brands">
-				<div class="row">
-					<div class="large-12 columns">
-						<p>Brands Here</p>
-					</div>
-				</div>
-			</section><!--End Brands Section-->
-
-
-
 			<section id="section_four" class="customers">
-				<div class="row">
-					<div class="large-12 columns">
-						<p>Customers Here</p>
-					</div>
+				<div class="row">					
+						<?php if (get_field('brands') ): ?>
+					<?php while (has_sub_field('customer') ): ?>	
+						<div class="customer">
+							<img src="<?php the_sub_field('logo'); ?>" />
+						</div>			
+			    	<?php endwhile; ?>
+					<?php endif; ?>
 				</div>
-			</section><!--End Customers Section-->
+			</section><!--End Services Section-->
+
+
+
+			<section id="section_three" class="services">
+				<div class="row">					
+						<?php if (get_field('services') ): ?>
+					<?php while (has_sub_field('services') ): ?>	
+						<div class="large-4 columns">
+							<p class="icon"><?php the_sub_field('icon'); ?></p>
+							<h3><?php the_sub_field('service'); ?></h3>
+		            		<p><?php the_sub_field('services'); ?></p>
+						</div>			
+			    	<?php endwhile; ?>
+					<?php endif; ?>
+				</div>
+			</section><!--End Services Section-->
+
+
+
+
+			<section id="section_four" class="brands">
+				<div class="row">					
+						<?php if (get_field('brands') ): ?>
+					<?php while (has_sub_field('brands') ): ?>	
+						<div class="large-4 columns">
+							<img src="<?php the_sub_field('logo'); ?>" />
+						</div>			
+			    	<?php endwhile; ?>
+					<?php endif; ?>
+				</div>
+			</section><!--End Services Section-->
+
 
 
 
