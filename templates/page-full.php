@@ -34,21 +34,6 @@ get_header(); ?>
 			</section><!--End Hero Section-->
 
 
-
-
-
-
-
-			<section id="section_two" class="about-us">
-				<div class="row">
-					<div class="large-9 large-centered columns">
-						<p><?php the_field('about_us'); ?></p>
-					</div>
-				</div>
-			</section><!--End About Us Section-->
-
-
-
 			<section id="section_four" class="customers">
 				<div class="row">					
 						<?php if (get_field('brands') ): ?>
@@ -60,6 +45,17 @@ get_header(); ?>
 					<?php endif; ?>
 				</div>
 			</section><!--End Services Section-->
+
+
+
+
+			<section id="section_two" class="about-us">
+				<div class="row">
+					<div class="large-9 large-centered columns">
+						<p><?php the_field('about_us'); ?></p>
+					</div>
+				</div>
+			</section><!--End About Us Section-->
 
 
 
@@ -84,7 +80,7 @@ get_header(); ?>
 				<div class="row">					
 						<?php if (get_field('brands') ): ?>
 					<?php while (has_sub_field('brands') ): ?>	
-						<div class="large-4 columns">
+						<div class="large-2 medium-3 columns">
 							<img src="<?php the_sub_field('logo'); ?>" />
 						</div>			
 			    	<?php endwhile; ?>
@@ -117,6 +113,42 @@ get_header(); ?>
 				
 			</div><!--End Row-->
 		</section><!--End Staff Section-->
+
+
+
+
+
+
+
+
+		<div class="row">
+		    <?php 
+		        $total_width = 0;
+		        if( have_rows('column') ) : while( have_rows('column') ) : the_row(); 
+		            $width = get_sub_field('column_width');
+		            $last = get_sub_field('last_column');
+		            $body = get_sub_field('column_body');
+		            $total_width += $width;
+
+		        if ($total_width > 12) {
+		            $total_width = $width;
+		            ?></div><div class="row"><?php
+		        }
+		    ?>
+		    <div class="small-12 medium-<?php echo $width ?> columns">
+		        <?php echo $body ?>
+		    </div>
+		        <?php
+		        if ($last == '1') {
+		            $total_width = 0;
+		            ?></div><div class="row"><?php
+		        } endwhile; endif;
+		    ?>
+		</div>
+
+
+
+
 
 
 

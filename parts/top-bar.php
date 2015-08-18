@@ -9,7 +9,7 @@
 
 ?>
 
-        <nav class="top-bar" data-topbar role="navigation">
+        <nav class="top-bar sticky" data-topbar role="navigation">
             <section class="logo">   
                 <h1><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a></h1>
             </section>

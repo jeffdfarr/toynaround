@@ -4,6 +4,7 @@
 }
 .top-bar {
 	width:100%;
+	position:absolute;
 	background-color:transparent;
 
 }
@@ -292,7 +293,7 @@ header {
 		/* background fades out at the end of the animation */
 		opacity: 0;
 		visibility: hidden;
-		-webkit-transition: opacity .3s 0s, visibility 0s .3s;
+		-webkit-transition: fopacity .3s 0s, visibility 0s .3s;
 		-moz-transition: opacity .3s 0s, visibility 0s .3s;
 		transition: opacity .3s 0s, visibility 0s .3s;
 	}

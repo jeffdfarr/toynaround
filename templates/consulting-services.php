@@ -36,18 +36,48 @@ get_header(); ?>
 
 
 			<section id="section_three" class="services">
-				<div class="row">					
-						<?php if (get_field('services') ): ?>
-					<?php while (has_sub_field('services') ): ?>	
-						<div class="large-4 columns">
-							<p class="icon"><?php the_sub_field('icon'); ?></p>
-							<h3><?php the_sub_field('service'); ?></h3>
-		            		<p><?php the_sub_field('services'); ?></p>
-						</div>			
-			    	<?php endwhile; ?>
-					<?php endif; ?>
-				</div>
+					<?php if (have_rows('services') ): ?>
+						<div class="row">						
+							<?php while (has_sub_field('services') ): ?>	
+								<div class="large-4 columns">
+									<p class="icon"><?php the_sub_field('icon'); ?></p>
+									<h3><?php the_sub_field('service'); ?></h3>
+				            		<p><?php the_sub_field('services'); ?></p>
+								</div>			
+			    			<?php endwhile; ?>
+			    		</div>
+					<?php endif; ?>	
 			</section><!--End Services Section-->
+
+
+
+
+
+
+			<?php if( have_rows('services') ): ?>
+
+				<div class="row">
+
+				<?php while( have_rows('services') ): the_row(); 
+
+					
+
+					?>
+
+					<div class="large-4 columns">
+
+						<p><?php the_sub_field('services'); ?></p>
+
+					</div>
+					
+				<?php endwhile; ?>
+
+				</div>
+
+			<?php endif; ?>
+
+
+
 
 
 
