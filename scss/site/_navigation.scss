@@ -2,15 +2,20 @@
 	float:right;
 	padding:1rem 1rem 0rem 0rem;
 }
-.top-bar {
-	width:100%;
-	position:absolute;
+.top-bar {	
+	@include transition(.3s);
+	line-height:auto;
 	background-color:transparent;
-
+	position:absolute;
+	width:100%;
+	top:0px;
+	z-index:1000;
 }
-
-// Add some whitespace between top bar and content
-
+.scrolled {
+	background-color:rgba(255,255,255,0.98);
+	position:fixed;
+	border-bottom:solid 1px #efefef;
+}
 
 .top-bar .name {
 	h1 a { font-weight: 500; }

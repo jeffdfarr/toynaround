@@ -11,3 +11,13 @@ $white:			#FFFFFF;
 
 $heading-font:	'Montserrat', sans-serif;
 $base-font:		'Lato', sans-serif;
+
+//Transitions
+
+@mixin transition($duration) {
+    -webkit-transition: $duration;
+    -moz-transition: $duration;
+    -ms-transition: $duration;
+    -o-transition: $duration;
+    transition: $duration;
+}

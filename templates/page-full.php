@@ -11,11 +11,7 @@ get_header(); ?>
 
 
 			<section id="section_one" class="hero">
-			<div class="tagline">
-			<?php if (get_field('tagline') ): ?>
-				<h2><?php the_field('tagline'); ?></h2>
-			<?php endif; ?>
-			</div>
+			
 
 			<?php
 			echo '<div class="slick-slider clearfix">';

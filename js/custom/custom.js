@@ -93,5 +93,16 @@ jQuery(document).ready(function($){
     }
 });
 
+//Sticky Header
+
+jQuery(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 1) {
+        jQuery("#navigation").addClass("scrolled");
+    } else {
+        jQuery("#navigation").removeClass("scrolled");
+    }
+});
 
 
