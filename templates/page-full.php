@@ -34,7 +34,7 @@ get_header(); ?>
 				<div class="row">					
 						<?php if (get_field('brands') ): ?>
 					<?php while (has_sub_field('customer') ): ?>	
-						<div class="customer">
+						<div class="customer-logo">
 							<img src="<?php the_sub_field('logo'); ?>" />
 						</div>			
 			    	<?php endwhile; ?>

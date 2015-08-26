@@ -24,10 +24,19 @@
 			opacity:0.4;
 		}
 	}
-	.customer {
+	.customer-logo {
 		text-align:center;
 		display:inline-block;
 		vertical-align:middle;
 		padding:1rem;
 	}
+	
 }
+.customers:after {
+		content: '';
+    	display: block;
+    	margin: 0 auto;
+    	margin-top: 0.75rem;
+    	border-bottom: 1px solid #efefef;
+    	max-width: 66%;
+	}

@@ -3,18 +3,42 @@
 	padding:1rem 1rem 0rem 0rem;
 }
 .top-bar {	
-	@include transition(.3s);
+	@include transition(.5s);
 	line-height:auto;
 	background-color:transparent;
 	position:absolute;
 	width:100%;
 	top:0px;
 	z-index:1000;
+	ul {
+		li {
+			a {
+				color:$white;
+			}
+		}
+	}
 }
 .scrolled {
 	background-color:rgba(255,255,255,0.98);
 	position:fixed;
 	border-bottom:solid 1px #efefef;
+	ul {
+		li {
+			a {
+				color:lighten($black, 50%);
+			}
+		}
+		li.current {	
+				a {
+					color:$dark-blue;
+				}
+			}
+	}
+}
+.logged-in {
+	.scrolled {
+		margin-top:2rem;
+	}
 }
 
 .top-bar .name {
@@ -37,6 +61,9 @@
 			background-color:$red;
 			border-radius:100rem;
 			padding:0.5rem 0.75rem;		
+			a {
+				color:$white;
+			}
 		}
 
 		li {
@@ -52,7 +79,7 @@
 				text-transform:uppercase;
 				font-weight:700;
 				font-size:0.8rem;
-				opacity:0.8;
+				font-family:$heading-font;
 			}
 		}
 }

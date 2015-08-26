@@ -10,7 +10,7 @@ get_header(); ?>
 
 
 
-			<section id="section_one" class="hero">
+			<section class="hero">
 			<div class="tagline">
 			<?php if (get_field('tagline') ): ?>
 				<h2><?php the_field('tagline'); ?></h2>
@@ -35,9 +35,9 @@ get_header(); ?>
 
 
 
-			<section id="section_three" class="services">
+			<section class="services">
 					<?php if (have_rows('services') ): ?>
-						<div class="row">						
+						<div class="row">					
 							<?php while (has_sub_field('services') ): ?>	
 								<div class="large-4 columns">
 									<p class="icon"><?php the_sub_field('icon'); ?></p>
@@ -54,27 +54,35 @@ get_header(); ?>
 
 
 
-			<?php if( have_rows('services') ): ?>
+			<?php
 
-				<div class="row">
-
-				<?php while( have_rows('services') ): the_row(); 
-
+				// check if the repeater field has rows of data
+				if( have_rows('services') ):
 					
-
-					?>
-
-					<div class="large-4 columns">
-
-						<p><?php the_sub_field('services'); ?></p>
-
-					</div>
+				 	// loop through the rows of data
 					
-				<?php endwhile; ?>
+					$counter = 0;
+				
+				    while ( have_rows('services') ) : the_row();
+				    
+				    if ($counter % 2 == 0) { 
+					   	echo '<div class="large-4 columns">'; 
+					   	the_sub_field('service');
+					   	the_sub_field('services');
+				        echo '</div>';						
+					}
+					
+					$counter ++;
+					
+				    endwhile;
+				   
+				else :
 
-				</div>
+				    // no rows found
 
-			<?php endif; ?>
+				endif;
+
+			?>
 
 
 
