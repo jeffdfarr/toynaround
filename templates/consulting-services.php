@@ -66,7 +66,7 @@ get_header(); ?>
 				    while ( have_rows('services') ) : the_row();
 				    
 				    if ($counter % 2 == 0) { 
-					   	echo '<div class="large-4 columns">'; 
+					   	echo '<div class="large-4 columns">';
 					   	the_sub_field('service');
 					   	the_sub_field('services');
 				        echo '</div>';						
@@ -83,6 +83,7 @@ get_header(); ?>
 				endif;
 
 			?>
+
 
 
 

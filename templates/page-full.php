@@ -87,28 +87,56 @@ get_header(); ?>
 
 
 
-			
 
-		<section id="section_five" class="staff">
-			<div class="row">
-				
-					<?php if (get_field('staff') ): ?>
-					<?php while (has_sub_field('staff') ): ?>
-    					<div class="team__item team__link js-team-card-trigger ">
-       						<div class="team__card js-team-card">
-            					<div class="team__card--top"></div>
-            					<div class="team__card-content">
-	            					<h5><?php the_sub_field('first_name'); ?> <?php the_sub_field('last_name'); ?></h5>
-	                				<p><?php the_sub_field('bio'); ?></p>
-                				</div><!--End team__card-content-->
-            				</div><!--End team__card-->
-            				<img class="img--circle team__img" src="<?php the_sub_field('image'); ?>" />
-        				</div><!--End team__item-->	
-			    	<?php endwhile; ?>
-					<?php endif; ?>
-				
-			</div><!--End Row-->
-		</section><!--End Staff Section-->
+
+
+
+
+<section id="section_five" class="staff">
+<div>
+<?php
+
+
+// Output photos in rows of toggling length
+$row = 0;
+$row_length = 5;
+$photo_index = -1;
+if ( get_field('staff') ):
+while ( has_sub_field('staff') ):
+
+$image = get_sub_field('image');
+$firstname = get_sub_field('first_name');
+$lastname = get_sub_field('last_name');
+$bio = get_sub_field('bio');
+
+
+++$photo_index;
+if ( $photo_index % $row_length == 0 ) {
+$photo_index = 0;
+++$row;
+// variables
+echo '</div><div class="row">';
+$row_length = 4 + ( $row_length == 4 ) * 1;
+}
+echo '<div class="team__item team__link js-team-card-trigger ">';
+	echo '<div class="team__card js-team-card">';
+	echo '<div class="team__card--top"></div>';
+		echo '<div class="team__card-content">';
+			print "<h5>$firstname $lastname</h5>";
+			print "<p>$bio</p>";
+		echo '</div>';
+	echo '</div>';
+	print "<img class='img--circle team__img' src='$image' />";
+echo '</div>';
+
+endwhile;
+endif;
+if ( !$photo_index == 0 ) {
+echo '</div>';
+}
+?>
+</section>
+
 
 
 
@@ -141,6 +169,12 @@ get_header(); ?>
 		        } endwhile; endif;
 		    ?>
 		</div>
+
+
+
+		
+
+
 
 
 
